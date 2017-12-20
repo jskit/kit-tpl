@@ -1,6 +1,6 @@
 {
   "name": "kit-tpl",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "npm 小项目模板",
   "main": "lib/index.js",
   "scripts": {
