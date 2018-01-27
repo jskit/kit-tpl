@@ -7,11 +7,11 @@
     "mocha": "--require ./resources/mocha-bootload --check-leaks --full-trace --timeout 15000 src/**/__tests__/**/*-test.js"
   },
   "scripts": {
-    "test": "npm run lint && npm run check && npm run testonly",
-    "testonly": "babel-node ./node_modules/.bin/_mocha $npm_package_options_mocha",
     "prepublishOnly": "npm run lib",
     "lib": "babel src -d lib",
     "benchmark": "node test && node benchmark",
+    "test": "npm run lint && npm run check && npm run testonly",
+    "testonly": "babel-node ./node_modules/.bin/_mocha $npm_package_options_mocha",
     "lint": "eslint --ext .js src app"
   },
   "repository": {
