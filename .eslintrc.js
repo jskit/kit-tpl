@@ -17,12 +17,18 @@ module.exports = {
     "browser": true,
     "mocha": true,
     "node": true,
+    "es6": true,
   },
   "globals": {
-    // "expect": true,
-    // "sinon": true,
-    // "Blob": false,
-    // "URL": false,
+    "window": false,
+    "expect": true,
+    "sinon": true,
+    "Blob": false,
+    "URL": false,
+    "__DEV__": false,
+    "__PROD__": false,
+    "__TEST__": false,
+    "__WEEX__": true
   },
   // 根据需要修改 rules，详见 http://eslint.org/docs/rules/
   // 推荐的编码风格 https://github.com/airbnb/javascript
@@ -53,9 +59,25 @@ module.exports = {
     "no-param-reassign": 0,
     "no-plusplus": 0,
     "no-restricted-syntax": 0,
+    "no-shadow": ["error", {
+      "allow": [
+        "res",
+        "err",
+        "cb",
+        "resolve",
+        "reject",
+        "done"
+      ]
+    }],
     "no-trailing-spaces": 0,
     "no-use-before-define": 0,
     "no-useless-escape": 0,
+    "no-unused-vars": ["error", {
+      "vars": "all",
+      "args": "none",
+      "caughtErrors": "none",
+      "ignoreRestSiblings": false,
+    }],
     "prefer-template": 0,
     "prefer-arrow-callback": 0,
     "require-yield": 1,
@@ -65,5 +87,7 @@ module.exports = {
       "named": "ignore",
       "asyncArrow": "ignore"
     }],
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
   }
 }
